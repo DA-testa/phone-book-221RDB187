@@ -10,14 +10,14 @@ def write_responses(result):
 def process_queries(queries):
     result = []
     contacts = {}
-    for cur_query in queries:
-        if cur_query[0] == 'add':
-            contacts[cur_query[1]] = cur_query[2]
-        elif cur_query[0] == 'del':
-            if cur_query[1] in contacts:
-                del contacts[cur_query[1]]
+    for _ in queries:
+        if _[0] == 'add':
+            contacts[_[1]] = _[2]
+        elif _[0] == 'del':
+            if _[1] in contacts:
+                del contacts[_[1]]
         else:
-            response = contacts.get(cur_query[1], 'not found')
+            response = contacts.get(_[1], 'not found')
             result.append(response)
     return result
 
